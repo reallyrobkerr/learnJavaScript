@@ -1,0 +1,86 @@
+/*************************************************
+*
+*   Front-end News! Stylesheet
+*
+*   Indigo        : #3f51b5
+*   Indigo (dark) : #303f9f
+*   Light blue    : #c5cae9
+*   White         : #fff
+*   Pink          : #ff4081
+*   Gray (dark)   : #212121
+*   Gray (medium) : #727272
+*   Gray (light)  : #b6b6b6
+*
+*************************************************/
+
+/*-----------------------------------------------
+*   Base
+-----------------------------------------------*/
+
+body {
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+p {
+
+}
+
+a {
+
+}
+
+/*-----------------------------------------------
+*   Hero
+-----------------------------------------------*/
+
+.hero {
+  background-color: #3f51b5;
+  color: #fff;
+  margin-bottom: 40px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/*-----------------------------------------------
+*   Logo
+-----------------------------------------------*/
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*-----------------------------------------------
+*   News
+-----------------------------------------------*/
+
+.news-item {
+  border-bottom: 1px solid #b6b6b6;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.news-link {
+  color: #3f51b5;
+  font-size: 24px;
+}
+
+/*-----------------------------------------------
+*   Container
+-----------------------------------------------*/
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+}
