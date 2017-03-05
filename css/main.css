@@ -6,6 +6,8 @@
 *   Indigo        : #3f51b5
 *   Indigo (dark) : #303f9f
 *   Light blue    : #2bf
+*   Slightly Darker
+*     blue        : #29c
 *   White         : #fff
 *   Pink          : #ff4081
 *   Gray (dark)   : #212121
@@ -21,13 +23,14 @@
 
 body {
   color: #212121;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Indie Flower', cursive;
   font-size: 10pt;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-
+  color: #751add;
+/*  font-family: 'Indie Flower', cursive; */
 }
 
 ol, ul {
@@ -42,6 +45,7 @@ p {
 
 a {
   color: #751add;
+  transition: 0.2s ease-in-out;
 }
 
 a:active,
@@ -112,6 +116,44 @@ a:hover {
   animation: fade-in .5s;
 }
 
+.is-visible {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+/*-----------------------------------------------
+*   Form
+-----------------------------------------------*/
+
+.form {
+  height: 0;
+  margin-bottom: 20px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form.is-visible {
+  animation: fade-in .5s;
+  height: auto;
+  opacity: 1;
+  visibility: visible;  
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+  box-sizing: border-box; 
+  font-size: 20px;
+  padding: 10px;
+  width: 100%;
+}
 
 /*-----------------------------------------------
 *   Animation
