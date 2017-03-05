@@ -24,7 +24,7 @@
 body {
   color: #212121;
   font-family: 'Indie Flower', cursive;
-  font-size: 10pt;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -61,8 +61,8 @@ a:hover {
 .hero {
   background-color: #2bf;
   color: #fff;
-  margin-bottom: 40px;
-  padding: 20px 0;
+  margin-bottom: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -71,9 +71,17 @@ a:hover {
 -----------------------------------------------*/
 
 .logo {
-  font-size: 36px;
+  animation: none;
+  color: #fff;
+  font-size: 66px;
   font-weight: bold;
+  margin: 20px 0;
+  text-decoration: none;
   text-transform: uppercase;
+}
+
+.logo:hover {
+  color: #fff;
 }
 
 /*-----------------------------------------------
