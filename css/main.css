@@ -33,7 +33,8 @@ em {
 }
 
 h1, h2, h3, h4, h5, h6 {
-
+  margin-bottom: 5px;
+  margin-top: 0;
 }
 
 ol, ul {
@@ -55,7 +56,6 @@ a {
 a:active,
 a:hover {
   color: #212121;
-  /*text-decoration: none;*/
 }
 
 /*-----------------------------------------------
