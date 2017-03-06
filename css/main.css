@@ -193,7 +193,7 @@ a:hover {
   transform: translate(-50%, -5%);
   transition: 0.4s ease-in-out;
   visibility: hidden;
-  width: 500px;
+  width: .modal-media;
   z-index: 2;
 }
 
