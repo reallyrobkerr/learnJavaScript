@@ -99,12 +99,12 @@ a:hover {
 }
 
 .news-link {
-  color: #751add;
+  color: #2bf;
   display: block;
   font-family: 'Open Sans', sans-serif;
   font-size: 28px;
-  /*margin-bottom: 10px;*/
-  text-decoration: underline;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .news-meta {
@@ -116,7 +116,7 @@ a:hover {
 }
 
 .news-author {
-  color: #751add;
+  color: #2bf;
   font-weight: 600; 
 }
 
