@@ -10,10 +10,16 @@ $(document).ready(function() {
   
   $('.js-like').on('click', function(event) {
     event.preventDefault();
-
-    $(this).text('Weirdo.')
-    .closest('.news-item')
-    .addClass('is-liked');
+    // ultra basic-bitch-newfag like/unlike toggle
+    if ($(this).text() === 'Do you like this?') {
+      $(this).text('Weirdo.')
+      .closest('.news-item')
+      .addClass('is-liked');
+    } else {
+      $(this).text('Do you like this?')
+      .closest('news-item')
+      .removeClass('is-liked')
+    };
   });
 
   //-----------------------------------------------
