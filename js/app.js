@@ -32,6 +32,17 @@ $(document).ready(function() {
     $('.js-form').toggleClass('is-visible');
   });
 
+  $('#form-link-input').keypress(function (event){
+    if (event.which === 13) { // if enter is pressed in the form-link-input field
+      console.log("keypress processed"); // write to the console to indicate something happened
+      event.preventDefault(); // prevent page reload
+      var newEntry = $(this).val(); // store the text input in a variable
+      $('.news').prepend(newEntry); // shove new items at the top of the list
+      $('.js-form').toggleClass('is-visible'); // hide the input field again
+      $(this).val(null); // reset the input
+    };
+  });
+
   //-----------------------------------------------
   //   Modal
   //-----------------------------------------------
