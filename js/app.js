@@ -37,7 +37,7 @@ $(document).ready(function() {
       console.log("keypress processed"); // write to the console to indicate something happened
       event.preventDefault(); // prevent page reload
       var newEntry = $(this).val(); // store the text input in a variable
-      $('.news').prepend('<li class=\'news-item\'> \ 
+      $('.news').prepend('<li class=\'news-item\'> \
   <a class=\'news-link\' href=\'#\'>' + newEntry + '</a> \
   <ul class=\'news-meta\'> \
     <li class=\'news-meta-item\'> \
