@@ -8,7 +8,7 @@ $(document).ready(function() {
   //   Like
   //-----------------------------------------------
   
-  $('.js-like').on('click', function(event) {
+  $('.news').on('click', '.js-like', function(event) {
     event.preventDefault();
     // ultra basic-bitch-newfag like/unlike toggle
     if ($(this).text() === 'Do you like this?') {
@@ -53,6 +53,8 @@ $(document).ready(function() {
   </ul> \
 </li>'); // shove new items at the top of the list, probably not the best way to do it
       $('.js-form').toggleClass('is-visible'); // hide the input field again
+      $('.news-brief').prepend('<li class=\'news-item\'> \
+        <a class=\'news-link\' href=\'#\'>' + newEntry + '</a>'); // add just the link to the modal
       $(this).val(null); // reset the input
     };
   });
@@ -61,7 +63,7 @@ $(document).ready(function() {
   //   Modal
   //-----------------------------------------------
 
-  $('.js-show-modal').on('click', function (event) {
+  $('.news').on('click', '.js-show-modal', function (event) {
     event.preventDefault();
 
       $('.js-modal').addClass('is-visible');
