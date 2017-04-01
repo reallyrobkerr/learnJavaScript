@@ -154,7 +154,7 @@ a:hover {
 
 .form {
   height: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   opacity: 0;
   visibility: hidden;
 }
@@ -164,13 +164,6 @@ a:hover {
   height: auto;
   opacity: 1;
   visibility: visible;  
-}
-
-.form-label {
-  color: #727272;
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
 }
 
 .form-input {
