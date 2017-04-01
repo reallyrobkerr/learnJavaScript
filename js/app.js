@@ -56,7 +56,8 @@
         console.log("keypress processed"); // write to the console to indicate something happened
         event.preventDefault(); // prevent page reload
         var newEntry = $(this).val(); // store the text input in a variable
-        $('.news').prepend(createListElement(newEntry, 'author'));
+        var author = "Author"; // placeholder for author. I don't have a session to get a current user from yet
+        $('.news').prepend(createListElement(newEntry, author));
         $('.js-form').toggleClass('is-visible'); // hide the input field again
         $('.news-brief').prepend('<li class="news-item"> \
           <a class="news-link" href="#">' + newEntry + '</a>'); // add just the link to the modal
