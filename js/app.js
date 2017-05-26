@@ -1,5 +1,5 @@
 (function() {
-  function createListElement (newEntry, author){
+  function createListElement(newEntry, author) {
     var listElement = '<li class="news-item">';
     listElement += '<a class="news-link" href="#">' + newEntry + '</a>';
     listElement += '<ul class="news-meta"> ';
@@ -26,9 +26,10 @@
     //-----------------------------------------------
     //   Like
     //-----------------------------------------------
-    
+
     $('.news').on('click', '.js-like', function(event) {
       event.preventDefault();
+
       // ultra basic-bitch-newfag like/unlike toggle
       if ($(this).text() === 'Do you like this?') {
         $(this).text('Weirdo.')
@@ -37,7 +38,7 @@
       } else {
         $(this).text('Do you like this?')
         .closest('news-item')
-        .removeClass('is-liked')
+        .removeClass('is-liked');
       };
     });
 
@@ -45,22 +46,20 @@
     //   Add Link
     //-----------------------------------------------
 
-    $('.js-add-link').on('click', function (event) {
+    $('.js-add-link').on('click', function(event) {
       event.preventDefault();
 
       $('.js-form').toggleClass('is-visible');
     });
 
-    $('#form-link-input').keypress(function (event){
+    $('#form-link-input').keypress(function(event) {
       if (event.which === 13) { // if enter is pressed in the form-link-input field
-        console.log("keypress processed"); // write to the console to indicate something happened
         event.preventDefault(); // prevent page reload
         var newEntry = $(this).val(); // store the text input in a variable
-        var author = "Author"; // placeholder for author. I don't have a session to get a current user from yet
+        var author = 'Author'; // placeholder for author. I don't have a session to get a current user from yet
         $('.news').prepend(createListElement(newEntry, author));
         $('.js-form').toggleClass('is-visible'); // hide the input field again
-        $('.news-brief').prepend('<li class="news-item"> \
-          <a class="news-link" href="#">' + newEntry + '</a>'); // add just the link to the modal
+        $('.news-brief').prepend('<li class="news-item"><a class="news-link" href="#">' + newEntry + '</a>'); // add just the link to the modal
         $(this).val(null); // reset the input
       };
     });
@@ -69,14 +68,13 @@
     //   Modal
     //-----------------------------------------------
 
-    $('.news').on('click', '.js-show-modal', function (event) {
+    $('.news').on('click', '.js-show-modal', function(event) {
       event.preventDefault();
-
-        $('.js-modal').addClass('is-visible');
-        $('.js-modal-overlay').addClass('is-visible');
+      $('.js-modal').addClass('is-visible');
+      $('.js-modal-overlay').addClass('is-visible');
     });
 
-    $('.js-modal-overlay').on('click', function (event) {
+    $('.js-modal-overlay').on('click', function() {
       $('.js-modal').removeClass('is-visible');
       $('.js-modal-overlay').removeClass('is-visible');
     });
