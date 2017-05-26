@@ -78,5 +78,13 @@
       $('.js-modal').removeClass('is-visible');
       $('.js-modal-overlay').removeClass('is-visible');
     });
+
+    // dismiss modal when press escape
+    $(document).on('keyup', function(event) {
+      if (event.which === 27) {
+        $('.js-modal').removeClass('is-visible');
+        $('.js-modal-overlay').removeClass('is-visible');
+      };
+    });
   });
 })();
