@@ -31,12 +31,12 @@
       event.preventDefault();
 
       // ultra basic-bitch-newfag like/unlike toggle
-      if ($(this).text() === 'Do you like this?') {
-        $(this).text('Weirdo.')
+      if ($(this).text() === 'Like') {
+        $(this).text('Unlike')
         .closest('.news-item')
         .addClass('is-liked');
       } else {
-        $(this).text('Do you like this?')
+        $(this).text('Like')
         .closest('news-item')
         .removeClass('is-liked');
       };
