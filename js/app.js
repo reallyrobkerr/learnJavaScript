@@ -11,7 +11,7 @@
     listElement += '<a href="#">Comments</a> ';
     listElement += '</li> ';
     listElement += '<li class="news-meta-item"> ';
-    listElement += '<a class="js-like" href="#">Do you like this?</a> ';
+    listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '</li> ';
     listElement += '</li>';
     return listElement;
@@ -31,14 +31,12 @@
       event.preventDefault();
 
       // ultra basic-bitch-newfag like/unlike toggle
-      if ($(this).text() === 'Like') {
-        $(this).text('Unlike')
-        .closest('.news-item')
-        .addClass('is-liked');
+      if ($(this).text() === ' Like') {
+        $(this).text(' Unlike')
+        .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
       } else {
-        $(this).text('Like')
-        .closest('news-item')
-        .removeClass('is-liked');
+        $(this).text(' Like')
+        .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
       };
     });
 
