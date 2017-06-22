@@ -84,5 +84,21 @@
         $('.js-modal-overlay').removeClass('is-visible');
       };
     });
+
+    //-----------------------------------------------------------
+    //   SWAPI
+    //
+    //   do more reading on ajax, callbacks and callback contexts
+    //-----------------------------------------------------------
+    const base = 'http://swapi.co/api/people/';
+
+    $.ajax({
+      url: base
+    })
+      .done(function(info) {
+        for (let i = 0; i < info.results.length; i++) {
+          $('.news').append(createListElement(info.results[i].name, 'SWAPI'));
+        }
+      });
   });
 })();
