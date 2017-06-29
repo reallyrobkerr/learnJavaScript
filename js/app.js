@@ -101,15 +101,19 @@
         }
       });
 
-    // from here I want to make the modal provide more info on the character
-    // on click of .swapi-author, 
-    $('.swapi-author').on('click', function(event) {
-      $.ajax({
-        url: base
-      })
-        .done(function(event) {
+    // from here I want to make the modal show more info on the character
+    // name, age, some other shit?
+    // a picture would be cool too (need different source for those)
+    //
+    // on click of .swapi-author, make another api call to swapi for that
+    //  specific character
+    // after character object is returned, deeply consider suicide
 
-        });
-    });
+    $('.swapi-author').on('click', $.ajax({
+      url: base
+    })
+      .done(function() {
+      })
+    );
   });
 })();
