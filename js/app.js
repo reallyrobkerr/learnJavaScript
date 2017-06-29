@@ -1,16 +1,16 @@
 (function() {
   function createListElement(newEntry, author) {
-    var listElement = '<li class="news-item">';
-    listElement += '<a class="news-link" href="#">' + newEntry + '</a>';
-    listElement += '<ul class="news-meta"> ';
-    listElement += '<li class="news-meta-item"> ';
+    var listElement = '<li class="swapi-item">';
+    listElement += '<a class="swapi-link" href="#">' + newEntry + '</a>';
+    listElement += '<ul class="swapi-meta"> ';
+    listElement += '<li class="swapi-meta-item"> ';
     listElement += '<em>Posted by: </em> ';
-    listElement += '<a class="news-author js-show-modal" href="#">' + author + '</a>';
+    listElement += '<a class="swapi-author js-show-modal" href="#">' + author + '</a>';
     listElement += '</li> ';
-    listElement += '<li class="news-meta-item"> ';
+    listElement += '<li class="swapi-meta-item"> ';
     listElement += '<a href="#">Comments</a> ';
     listElement += '</li> ';
-    listElement += '<li class="news-meta-item"> ';
+    listElement += '<li class="swapi-meta-item"> ';
     listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '</li> ';
     listElement += '</li>';
@@ -27,7 +27,7 @@
     //   Like
     //-----------------------------------------------
 
-    $('.news').on('click', '.js-like', function(event) {
+    $('.swapis').on('click', '.js-like', function(event) {
       event.preventDefault();
 
       // ultra basic-bitch-newfag like/unlike toggle
@@ -55,9 +55,9 @@
         event.preventDefault(); // prevent page reload
         var newEntry = $(this).val(); // store the text input in a variable
         var author = 'Author'; // placeholder for author. I don't have a session to get a current user from yet
-        $('.news').prepend(createListElement(newEntry, author));
+        $('.swapis').prepend(createListElement(newEntry, author));
         $('.js-form').toggleClass('is-visible'); // hide the input field again
-        $('.news-brief').prepend('<li class="news-item"><a class="news-link" href="#">' + newEntry + '</a>'); // add just the link to the modal
+        $('.swapi-brief').prepend('<li class="swapi-item"><a class="swapi-link" href="#">' + newEntry + '</a>'); // add just the link to the modal
         $(this).val(null); // reset the input
       };
     });
@@ -66,7 +66,7 @@
     //   Modal
     //-----------------------------------------------
 
-    $('.news').on('click', '.js-show-modal', function(event) {
+    $('.swapis').on('click', '.js-show-modal', function(event) {
       event.preventDefault();
       $('.js-modal').addClass('is-visible');
       $('.js-modal-overlay').addClass('is-visible');
@@ -97,8 +97,19 @@
     })
       .done(function(info) {
         for (let i = 0; i < info.results.length; i++) {
-          $('.news').append(createListElement(info.results[i].name, 'SWAPI'));
+          $('.swapis').append(createListElement(info.results[i].name, 'SWAPI'));
         }
       });
+
+    // from here I want to make the modal provide more info on the character
+    // on click of .swapi-author, 
+    $('.swapi-author').on('click', function(event) {
+      $.ajax({
+        url: base
+      })
+        .done(function(event) {
+
+        });
+    });
   });
 })();

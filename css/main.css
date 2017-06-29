@@ -53,10 +53,6 @@ ol, ul {
   list-style-type: none;
 }
 
-p {
-
-}
-
 a {
   color: darkred;
   text-decoration: none;
@@ -100,16 +96,16 @@ a:hover {
 }
 
 /*-----------------------------------------------
-*   News
+*   SWAPI
 -----------------------------------------------*/
 
-.news-item {
+.swapi-item {
   border-bottom: 1px solid #b6b6b6;
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
 
-.news-link {
+.swapi-link {
   color: darkred;
   display: block;
   font-family: 'Open Sans', sans-serif;
@@ -118,15 +114,15 @@ a:hover {
   text-transform: uppercase;
 }
 
-.news-meta {
+.swapi-meta {
   margin-bottom: 10px;
 }
-.news-meta-item {
+.swapi-meta-item {
   display: inline;
   margin-right: 15px;
 }
 
-.news-author {
+.swapi-author {
   color: brown;
   font-weight: 600; 
 }
@@ -188,7 +184,6 @@ a:hover {
 .modal {
   background-color: #fff;
   border-radius: 4px;
-  /*border-bottom-right-radius: 4px;*/
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
   left: 50%;
   opacity: 0;
