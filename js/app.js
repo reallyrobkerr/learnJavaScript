@@ -107,7 +107,17 @@
     //
     // on click of .swapi-author, make another api call to swapi for that
     //  specific character
-    // after character object is returned, deeply consider suicide
+    // after character object is returned, figure out whatever info you want
+    // to use and present back to the user
+    //
+    // read up on data-attributes and how to apply them
+    //
+    // use <data-attributes> to create an identifier for each character
+    // swapi will return the URL for each character in the people object
+    // use URL as data-attribute in order to get more info about the correct character
+    //
+    // later, parse URL to get the /people/n endpoint for cleaner code and shove that into a variable
+    // 
 
     $('.swapi-author').on('click', $.ajax({
       url: base
