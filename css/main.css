@@ -117,8 +117,9 @@ a:hover {
 .swapi-meta {
   margin-bottom: 10px;
 }
+
 .swapi-meta-item {
-  display: inline;
+  display: block;
   margin-right: 15px;
 }
 
@@ -262,4 +263,8 @@ a:hover {
 
 .js-like {
   cursor: pointer;
+  display: block;
+  position: absolute;  
+  padding-top: 5px;
+  right: 10%;
 }

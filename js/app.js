@@ -1,17 +1,16 @@
 (function() {
-  function createListElement(newEntry, author) {
-    var listElement = '<li class="swapi-item">';
-    listElement += '<a class="swapi-link" href="#">' + newEntry + '</a>';
+  function createListElement(name, height) {
+    var listElement = '<li data-id="" class="swapi-item">';
+    listElement += '<a class="swapi-link" href="#">' + name + '</a>';
+    listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '<ul class="swapi-meta"> ';
     listElement += '<li class="swapi-meta-item"> ';
-    listElement += '<em>Posted by: </em> ';
-    listElement += '<a class="swapi-author js-show-modal" href="#">' + author + '</a>';
+    listElement += 'Height: ' + height;
+    listElement += '</li>';
+    listElement += '<li class="swapi-meta-item"> ';
+    listElement += '<a class="swapi-more js-show-modal" href="#">More...</a>';
     listElement += '</li> ';
     listElement += '<li class="swapi-meta-item"> ';
-    listElement += '<a href="#">Comments</a> ';
-    listElement += '</li> ';
-    listElement += '<li class="swapi-meta-item"> ';
-    listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '</li> ';
     listElement += '</li>';
     return listElement;
@@ -50,12 +49,13 @@
       $('.js-form').toggleClass('is-visible');
     });
 
+    // make this into search later...
     $('#form-link-input').keypress(function(event) {
       if (event.which === 13) { // if enter is pressed in the form-link-input field
         event.preventDefault(); // prevent page reload
         var newEntry = $(this).val(); // store the text input in a variable
-        var author = 'Author'; // placeholder for author. I don't have a session to get a current user from yet
-        $('.swapis').prepend(createListElement(newEntry, author));
+        // var author = 'Author'; // placeholder for author. I don't have a session to get a current user from yet
+        $('.swapis').prepend(createListElement(newEntry));
         $('.js-form').toggleClass('is-visible'); // hide the input field again
         $('.swapi-brief').prepend('<li class="swapi-item"><a class="swapi-link" href="#">' + newEntry + '</a>'); // add just the link to the modal
         $(this).val(null); // reset the input
@@ -97,7 +97,8 @@
     })
       .done(function(info) {
         for (let i = 0; i < info.results.length; i++) {
-          $('.swapis').append(createListElement(info.results[i].name, 'SWAPI'));
+          $('.swapis').append(createListElement(info.results[i].name ,info.results[i].height));
+          $('.listElement').data('id', info.results[i].url);
         }
       });
 
@@ -105,7 +106,7 @@
     // name, age, some other shit?
     // a picture would be cool too (need different source for those)
     //
-    // on click of .swapi-author, make another api call to swapi for that
+    // on click of .swapi-more, make another api call to swapi for that
     //  specific character
     // after character object is returned, figure out whatever info you want
     // to use and present back to the user
@@ -117,9 +118,9 @@
     // use URL as data-attribute in order to get more info about the correct character
     //
     // later, parse URL to get the /people/n endpoint for cleaner code and shove that into a variable
-    // 
+    //
 
-    $('.swapi-author').on('click', $.ajax({
+    $('.swapi-more').on('click', $.ajax({
       url: base
     })
       .done(function() {
