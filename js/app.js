@@ -1,6 +1,6 @@
 (function() {
-  function createListElement(name, height) {
-    var listElement = '<li data-id="" class="swapi-item">';
+  function createListElement(name, height, id) {
+    var listElement = '<li data-id="' + id + '" class="swapi-item">';
     listElement += '<a class="swapi-link" href="#">' + name + '</a>';
     listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '<ul class="swapi-meta"> ';
@@ -97,8 +97,7 @@
     })
       .done(function(info) {
         for (let i = 0; i < info.results.length; i++) {
-          $('.swapis').append(createListElement(info.results[i].name ,info.results[i].height));
-          $('.listElement').data('id', info.results[i].url);
+          $('.swapis').append(createListElement(info.results[i].name ,info.results[i].height, info.results[i].url));
         }
       });
 
