@@ -119,11 +119,16 @@
     // later, parse URL to get the /people/n endpoint for cleaner code and shove that into a variable
     //
 
-    $('.swapi-more').on('click', $.ajax({
-      url: base
-    })
-      .done(function() {
+    $('.swapis').on('click', '.swapi-more', function(event) {
+      event.preventDefault();
+      let endpoint = $(this).parent('.data-id').val();
+
+      $.ajax({
+        url: endpoint
       })
-    );
+      .done(function(info) {
+        console.log(info.name);
+      });
+    });
   });
 })();
