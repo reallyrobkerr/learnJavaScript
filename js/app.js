@@ -1,15 +1,14 @@
 (function() {
   function createListElement(name, height, id) {
-    var listElement = '<li data-id="' + id + '" class="swapi-item">';
-    listElement += '<a class="swapi-link" href="#">' + name + '</a>';
+    var listElement = '<li class="swapi-item">';
+    listElement += '<a data-id="' + id + '" class="swapi-link">' + name + '</a>';
     listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '<ul class="swapi-meta"> ';
-    listElement += '<li class="swapi-meta-item"> ';
-    listElement += 'Height: ' + height;
-    listElement += '</li>';
-    listElement += '<li class="swapi-meta-item"> ';
-    listElement += '<a class="swapi-more js-show-modal" href="#">More...</a>';
-    listElement += '</li> ';
+
+    // listElement += '<li class="swapi-meta-item"> ';
+    // listElement += 'Height: ' + height;
+    // listElement += '</li>';
+
     listElement += '<li class="swapi-meta-item"> ';
     listElement += '</li> ';
     listElement += '</li>';
@@ -32,10 +31,10 @@
       // ultra basic-bitch-newfag like/unlike toggle
       if ($(this).text() === ' Like') {
         $(this).text(' Unlike')
-        .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
+          .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
       } else {
         $(this).text(' Like')
-        .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
+          .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
       };
     });
 
@@ -66,12 +65,6 @@
     //   Modal
     //-----------------------------------------------
 
-    $('.swapis').on('click', '.js-show-modal', function(event) {
-      event.preventDefault();
-      $('.js-modal').addClass('is-visible');
-      $('.js-modal-overlay').addClass('is-visible');
-    });
-
     $('.js-modal-overlay').on('click', function() {
       $('.js-modal').removeClass('is-visible');
       $('.js-modal-overlay').removeClass('is-visible');
@@ -101,34 +94,31 @@
         }
       });
 
-    // from here I want to make the modal show more info on the character
-    // name, age, some other shit?
-    // a picture would be cool too (need different source for those)
-    //
-    // on click of .swapi-more, make another api call to swapi for that
-    //  specific character
-    // after character object is returned, figure out whatever info you want
-    // to use and present back to the user
-    //
-    // read up on data-attributes and how to apply them
-    //
-    // use <data-attributes> to create an identifier for each character
-    // swapi will return the URL for each character in the people object
-    // use URL as data-attribute in order to get more info about the correct character
-    //
-    // later, parse URL to get the /people/n endpoint for cleaner code and shove that into a variable
-    //
+    // ✅ use <data-attributes> to create an identifier for each character
+    // ✅ use URL as data-attribute in order to get more info about the correct character
+    // => later, parse URL to get the /people/n endpoint for cleaner code and shove that
+    //      into a variable
+    // ✅ on click of .swapi-more, make another api call to swapi for that
+    //      specific character
 
-    $('.swapis').on('click', '.swapi-more', function(event) {
+    // from here I want to have the modal display all available info returned in the JSON
+    //   object (key and value)
+
+    // a picture would be cool too (need different source for those)
+
+    $('.swapis').on('click', '.swapi-link', function(event) {
       event.preventDefault();
-      let endpoint = $(this).parent('.data-id').val();
+      let endpoint = $(this).data('id');
 
       $.ajax({
         url: endpoint
       })
-      .done(function(info) {
-        console.log(info.name);
-      });
+        .done(function(info) {
+          event.preventDefault();
+          $('.modal-media-title').html(info.name);
+          $('.js-modal').addClass('is-visible');
+          $('.js-modal-overlay').addClass('is-visible');
+        });
     });
   });
 })();
