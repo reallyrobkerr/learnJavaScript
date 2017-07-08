@@ -106,15 +106,13 @@
 
     // a picture would be cool too (need different source for those)
 
-    $('.swapis').on('click', '.swapi-link', function(event) {
-      event.preventDefault();
+    $('.swapis').on('click', '.swapi-link', function() {
       let endpoint = $(this).data('id');
 
       $.ajax({
         url: endpoint
       })
         .done(function(info) {
-          event.preventDefault();
           $('.modal-media-title').html(info.name);
           $('.js-modal').addClass('is-visible');
           $('.js-modal-overlay').addClass('is-visible');
