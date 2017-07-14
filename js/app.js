@@ -1,14 +1,9 @@
 (function() {
-  function createListElement(name, height, id) {
+  function createListElement(name, id) {
     var listElement = '<li class="swapi-item">';
     listElement += '<a data-id="' + id + '" class="swapi-link">' + name + '</a>';
     listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '<ul class="swapi-meta"> ';
-
-    // listElement += '<li class="swapi-meta-item"> ';
-    // listElement += 'Height: ' + height;
-    // listElement += '</li>';
-
     listElement += '<li class="swapi-meta-item"> ';
     listElement += '</li> ';
     listElement += '</li>';
@@ -90,7 +85,7 @@
     })
       .done(function(info) {
         for (let i = 0; i < info.results.length; i++) {
-          $('.swapis').append(createListElement(info.results[i].name ,info.results[i].height, info.results[i].url));
+          $('.swapis').append(createListElement(info.results[i].name, info.results[i].url));
         }
       });
 
@@ -105,16 +100,14 @@
     //   object (key and value)
 
     // a picture would be cool too (need different source for those)
-
-    $('.swapis').on('click', '.swapi-link', function(event) {
-      event.preventDefault();
+    // debugger;
+    $('.swapis').on('click', '.swapi-link', function() {
       let endpoint = $(this).data('id');
 
       $.ajax({
         url: endpoint
       })
         .done(function(info) {
-          event.preventDefault();
           $('.modal-media-title').html(info.name);
           $('.js-modal').addClass('is-visible');
           $('.js-modal-overlay').addClass('is-visible');
