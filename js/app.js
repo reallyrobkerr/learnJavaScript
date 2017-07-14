@@ -4,6 +4,11 @@
     listElement += '<a data-id="' + id + '" class="swapi-link">' + name + '</a>';
     listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
     listElement += '<ul class="swapi-meta"> ';
+
+    // listElement += '<li class="swapi-meta-item"> ';
+    // listElement += 'Height: ' + height;
+    // listElement += '</li>';
+
     listElement += '<li class="swapi-meta-item"> ';
     listElement += '</li> ';
     listElement += '</li>';
@@ -100,7 +105,7 @@
     //   object (key and value)
 
     // a picture would be cool too (need different source for those)
-    // debugger;
+
     $('.swapis').on('click', '.swapi-link', function() {
       let endpoint = $(this).data('id');
 
