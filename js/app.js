@@ -28,7 +28,7 @@
     $('.swapis').on('click', '.js-like', function(event) {
       event.preventDefault();
 
-      // ultra basic-bitch-newfag like/unlike toggle
+      // ultra newguy like/unlike toggle
       if ($(this).text() === ' Like') {
         $(this).text(' Unlike')
           .toggleClass('is-liked fa-thumbs-up fa-thumbs-o-up');
@@ -48,7 +48,7 @@
       $('.js-form').toggleClass('is-visible');
     });
 
-    // make this into search later...
+    // make this into search/filter later...
     $('#form-link-input').keypress(function(event) {
       if (event.which === 13) { // if enter is pressed in the form-link-input field
         event.preventDefault(); // prevent page reload
@@ -97,14 +97,13 @@
     // ✅ use <data-attributes> to create an identifier for each character
     // ✅ use URL as data-attribute in order to get more info about the correct character
     // => later, parse URL to get the /people/n endpoint for cleaner code and shove that
-    //      into a variable
+    //      into a variable or array
     // ✅ on click of .swapi-more, make another api call to swapi for that
     //      specific character
-
-    // from here I want to have the modal display all available info returned in the JSON
+    // take info from `more...` click and have the modal display all available info in the JSON
     //   object (key and value)
 
-    // a picture would be cool too (need different source for those)
+    // a picture would be cool too (need different source for those, and more thought)
 
     $('.swapis').on('click', '.swapi-link', function() {
       let endpoint = $(this).data('id');
