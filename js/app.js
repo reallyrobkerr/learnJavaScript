@@ -3,16 +3,22 @@
     var listElement = '<li class="swapi-item">';
     listElement += '<a data-id="' + id + '" class="swapi-link">' + name + '</a>';
     listElement += '<i class="fa fa-thumbs-o-up js-like" aria-hidden="true"> Like</i> ';
-    listElement += '<ul class="swapi-meta"> ';
 
+    // listElement += '<ul class="swapi-meta"> ';
     // listElement += '<li class="swapi-meta-item"> ';
     // listElement += 'Height: ' + height;
     // listElement += '</li>';
-
-    listElement += '<li class="swapi-meta-item"> ';
-    listElement += '</li> ';
+    // listElement += '<li class="swapi-meta-item"> ';
+    // listElement += '</li> ';
     listElement += '</li>';
     return listElement;
+  }
+
+  function fillModal(info) {
+    for (let i = 0; i < info.length; i++) {
+      let modalStats = '<li class="swapi-stat">' + Object.keys(info) + '</li>';
+      return modalStats;
+    }
   }
 
   /*-----------------------------------------------
@@ -113,6 +119,7 @@
       })
         .done(function(info) {
           $('.modal-media-title').html(info.name);
+          $('.swapi-stats').html(fillModal(info.valueOf()));
           $('.js-modal').addClass('is-visible');
           $('.js-modal-overlay').addClass('is-visible');
         });

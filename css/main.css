@@ -53,6 +53,14 @@ ol, ul {
   list-style-type: none;
 }
 
+li:first-child {
+  padding: 0 0 5px 0;
+}
+
+li:last-child {
+  border: 0;
+}
+
 a {
   color: darkred;
   cursor: pointer;
@@ -102,8 +110,7 @@ a:hover {
 
 .swapi-item {
   border-bottom: 1px solid tan;
-  margin-bottom: 10px;
-  padding-bottom: : 10px;
+  padding: 5px 0 5px 0;
 }
 
 .swapi-link {
