@@ -89,7 +89,7 @@
     //
     //   do more reading on ajax, callbacks and callback contexts
     //-----------------------------------------------------------
-    const base = 'http://swapi.co/api/people/';
+    const base = 'https://swapi.co/api/people/';
 
     $.ajax({
       url: base
@@ -114,15 +114,57 @@
     $('.swapis').on('click', '.swapi-link', function() {
       let endpoint = $(this).data('id');
 
-      $.ajax({
+      $.ajax({ // convert to axios
         url: endpoint
       })
         .done(function(info) {
           $('.modal-media-title').html(info.name);
-          $('.swapi-stats').html(fillModal(info.valueOf()));
+
+          $('.swapi-stats').empty().append(`
+            <li>Homeworld: ${info.homeworld}</li>
+            <li>Gender: ${info.gender}</li>
+            <li>Species: ${info.species}</li>
+            <li>Born: ${info.birth_year}</li>
+            <li>Height: ${info.height}</li>
+            <li>Mass: ${info.mass}</li>
+            <li>Hair: ${info.hair_color}</li>
+            <li>Eyes: ${info.eye_color}</li>
+          `);
+
           $('.js-modal').addClass('is-visible');
           $('.js-modal-overlay').addClass('is-visible');
         });
+    });
+
+    // speak the 'title' on button click
+    $('#speakup').on('click', () => {
+      let words = $('#logo').text();
+      let msg = new SpeechSynthesisUtterance();
+      msg.text = words;
+      speechSynthesis.speak(msg);
+    });
+
+    //pause speaking
+    $(document).on('keydown', function(event) {
+      if (event.which === 32 && speechSynthesis.speaking) {
+        event.preventDefault();
+        speechSynthesis.pause();
+      };
+    });
+
+    // resumè speaking
+    $(document).on('keydown', function(event) {
+      if (event.which === 32 && speechSynthesis.pause) {
+        event.preventDefault();
+        speechSynthesis.resume();
+      };
+    });
+
+    // stop speaking
+    $(document).on('keydown', function(event) {
+      if (event.which === 27 && speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+      };
     });
   });
 })();

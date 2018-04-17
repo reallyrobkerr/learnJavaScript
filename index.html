@@ -14,7 +14,7 @@
   <body>
     <header class='hero'>
       <div class='container'>
-        <a class='logo' href='/'>greetings, human</a>
+        <a class='logo' id='logo' href='/'>greetings, human</a>
       </div>
     </header>
     <main class='content'>
@@ -25,6 +25,9 @@
             <input class='form-input' type='text' id='form-link-input' />
           </form>
         </header>
+        <div class='speechControl'>
+          <button type='submit' id='speakup'>speak up!</button>
+        </div>
         <div class='modal js-modal'>
           <div class='modal-media'>
             <img class='modal-img' src='https://ccwwendell.files.wordpress.com/2011/07/awesome-face2.jpg' alt='' />
@@ -32,8 +35,8 @@
           </div>
           <div class='modal-content'>
             <h3>Stats</h3>
-            <ol class='swapi-stats'>
-            </ol>
+            <ul id='swapi-stats' class='swapi-stats'>
+            </ul>
           </div>
         </div>
         <div class='modal-overlay js-modal-overlay'></div>
